@@ -59,7 +59,6 @@ public class Assembler {
 
         } catch (FileNotFoundException e) {
             System.out.println("An error");
-            e.printStackTrace();
         }
     }
     public static String formatCode(String machineCode){
