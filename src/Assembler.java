@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -19,6 +20,7 @@ public class Assembler {
         commands.put("STOP", "00");
         commands.put("CPBA", "B");
         commands.put("BRNE", "1A");
+        commands.put("ADDA", "60");
 
         address.put("i", "0");
         address.put("d", "1");
@@ -41,15 +43,17 @@ public class Assembler {
                 }
 
                 String[] parts = line.split("[ ,]+");
-                String command = parts[0].toUpperCase();
-                String operand = parts[1].replace("0x", "");
-                String mode = parts[2].toLowerCase();
 
-                if (commands.containsKey(command) && address.containsKey(mode)) {
-                    String machineCode = commands.get(command) + address.get(mode);
-                    machineCodeOutput.append(machineCode).append(operand);
-                } else {
-                    System.out.println("Unknown: " + line);
+                String command = parts[0].toUpperCase();
+                if (parts.length >1) {
+                    String operand = parts[1].replace("0x", "");
+                    String mode = parts[2].toLowerCase();
+                    if (commands.containsKey(command) && address.containsKey(mode)) {
+                        String machineCode = commands.get(command) + address.get(mode);
+                        machineCodeOutput.append(machineCode).append(operand);
+                    } else {
+                        System.out.println("Unknown: " + line);
+                    }
                 }
             }
             scanner.close();
