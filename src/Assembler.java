@@ -9,15 +9,15 @@ public class Assembler {
     public void assembleFile(String filePath) {
         HashMap<String, String> commands = new HashMap<>();
         HashMap<String, String> address = new HashMap<>();
-        commands.put("STBA", "F1");
-        commands.put("LDBA", "D0");
-        commands.put("STWA", "E1");
-        commands.put("LDWA", "C1");
-        commands.put("ANDA", "80");
+        commands.put("STBA", "F");
+        commands.put("LDBA", "D");
+        commands.put("STWA", "E");
+        commands.put("LDWA", "C");
+        commands.put("ANDA", "8");
         commands.put("ASLA", "0A");
         commands.put("ASRA", "0C");
         commands.put("STOP", "00");
-        commands.put("CPBA", "B1");
+        commands.put("CPBA", "B");
         commands.put("BRNE", "1A");
 
         address.put("i", "0");
