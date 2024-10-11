@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -20,7 +19,7 @@ public class Assembler {
         commands.put("STOP", "00");
         commands.put("CPBA", "B");
         commands.put("BRNE", "1A");
-        commands.put("ADDA", "60");
+        commands.put("ADDA", "6");
 
         address.put("i", "0");
         address.put("d", "1");
@@ -62,7 +61,7 @@ public class Assembler {
             System.out.println(formattedCode);
 
         } catch (FileNotFoundException e) {
-            System.out.println("An error");
+            System.out.println("A file error");
         }
     }
     public static String formatCode(String machineCode){
